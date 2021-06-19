@@ -1,0 +1,122 @@
+{
+  "name": "NEPAL",
+  "children": [
+    {
+      "name": "PROVINCE",
+      "children": [
+        {
+          "name": "PROVINCE1",
+          "children": [
+            { "name": "JHAPA", "value": 14088 },
+            { "name": "ILLAM", "value": 950 },
+            { "name": "MORANG", "value": 27945 },
+            { "name": "SUNSARI", "value": 16585 },
+            { "name": "UDAYAPUR", "value": 1408 },
+            { "name": "DHANKUTA", "value": 1256 },
+            { "name": "BHOJPUR", "value": 417 },
+            { "name": "KHOTANG", "value": 893 },
+            { "name": "SOLUKHUMBU", "value": 465 },
+            { "name": "SANKHUWASABHA", "value": 1158 },
+            { "name": "PANCHTHAR", "value": 592 },
+            { "name": "TERHATHUM", "value": 500 },
+            { "name": "TAPLEJUNG", "value": 728 },
+            { "name": "OKHALDHUNGA", "value": 1226 }
+          ]
+        },
+        {
+          "name": "PROVINCE2",
+          "children": [
+            { "name": "PARSA", "value": 7368 },
+            { "name": "BARA", "value": 4614 },
+            { "name": "RAUTAHAT", "value": 4455 },
+            { "name": "SARLAHI", "value": 4514 },
+            { "name": "MAHOTTARI", "value": 4631 },
+            { "name": "DHANUSA", "value": 8904 },
+            { "name": "SIRAHA", "value": 4034 },
+            { "name": "SAPTARI", "value": 4175 }
+          ]
+        },
+        {
+          "name": "PROVINCE3",
+          "children": [
+            { "name": "KATHMANDU", "value": 200879 },
+            { "name": "LALITPUR", "value": 36461 },
+            { "name": "BHAKTAPUR", "value": 21700 },
+            { "name": "KAVREPALANCHOK", "value": 10596 },
+            { "name": "NUWAKOT", "value": 5219 },
+            { "name": "DHADING", "value": 5758 },
+            { "name": "MAKWANPUR", "value": 9120 },
+            { "name": "CHITAWAN", "value": 16298 },
+            { "name": "SINDHULI", "value": 2675 },
+            { "name": "RAMECHHAP", "value": 2169 },
+            { "name": "DOLAKHA", "value": 2237 },
+            { "name": "SINDHUPALCHOK", "value": 5231 },
+            { "name": "RASUWA", "value": 861 }
+          ]
+        },
+        {
+          "name": "PROVINCE4",
+          "children": [
+            { "name": "NAWALPARASIEAST", "value": 6125 },
+            { "name": "TANAHU", "value": 4612 },
+            { "name": "SYANGJA", "value": 3061 },
+            { "name": "PARBAT", "value": 1577 },
+            { "name": "BAGLUNG", "value": 2467 },
+            { "name": "MYAGDI", "value": 1360 },
+            { "name": "KASKI", "value": 21767 },
+            { "name": "LAMJUNG", "value": 2629 },
+            { "name": "GORKHA", "value": 4701 },
+            { "name": "MANANG", "value": 67 },
+            { "name": "MUSTANG", "value": 179 }
+          ]
+        },
+        {
+          "name": "PROVINCE5",
+          "children": [
+            { "name": "NAWALPARASIWEST", "value": 3686 },
+            { "name": "RUPANDEHI", "value": 28529 },
+            { "name": "PALPA", "value": 5845 },
+            { "name": "GULMI", "value": 2866 },
+            { "name": "ARGHAKHANCHI", "value": 2191 },
+            { "name": "KAPILBASTU", "value": 4390 },
+            { "name": "PYUTHAN", "value": 1425 },
+            { "name": "ROLPA", "value": 1297 },
+            { "name": "RUKUMEAST", "value": 174 },
+            { "name": "DANG", "value": 12341 },
+            { "name": "BARDIYA", "value": 5610 },
+            { "name": "BANKE", "value": 17551 }
+          ]
+        },
+        {
+          "name": "PROVINCE6",
+          "children": [
+            { "name": "RUKUMWEST", "value": 879 },
+            { "name": "SALYAN", "value": 1827 },
+            { "name": "SURKHET", "value": 10327 },
+            { "name": "DAILEKH", "value": 2970 },
+            { "name": "JAJARKOT", "value": 775 },
+            { "name": "KALIKOT", "value": 702 },
+            { "name": "JUMLA", "value": 955 },
+            { "name": "DOLPA", "value": 102 },
+            { "name": "MUGU", "value": 73 },
+            { "name": "HUMLA", "value": 89 }
+          ]
+        },
+        {
+          "name": "PROVINCE7",
+          "children": [
+            { "name": "KAILALI", "value": 15913 },
+            { "name": "KANCHANPUR", "value": 5390 },
+            { "name": "ACHHAM", "value": 3857 },
+            { "name": "DADELDHURA", "value": 1987 },
+            { "name": "DOTI", "value": 2637 },
+            { "name": "BAITADI", "value": 2485 },
+            { "name": "BAJURA", "value": 783 },
+            { "name": "BAJHANG", "value": 1157 },
+            { "name": "DARCHULA", "value": 929 }
+          ]
+        }
+      ]
+    }
+  ]
+}
