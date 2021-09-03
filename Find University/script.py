@@ -48,7 +48,7 @@ class FindUniversity:
             except:
                 location = None
             try:
-                application_url = dv.find_element_by_xpath("//ul[@class='details']//li[@class='application']").get_attribute('href')
+                application_url = dv.find_element_by_xpath("//ul[@class='details']//li[@class='application']//a").get_attribute('href')
             except:
                 application_url = None
             tuitions = dv.find_elements_by_xpath("//ul[@class='details']//li[@class='tuition']")
@@ -64,8 +64,14 @@ class FindUniversity:
                 doctorate_tuition = tuitions[2].text.strip()
             except:
                 doctorate_tuition = None
-            review = dv.find_element_by_xpath("//div[@class='search-item__review']//p").text.strip()
-            reviewer = dv.find_element_by_xpath("//div[@class='search-item__review']//p[@class='reviewer']").text.strip()
+            try:
+                review = dv.find_element_by_xpath("//div[@class='search-item__review']//p").text.strip()
+            except:
+                review = None
+            try:
+                reviewer = dv.find_element_by_xpath("//div[@class='search-item__review']//p[@class='reviewer']").text.strip()
+            except:
+                reviewer = None
             data = {
                 "name": name,
                 "location": location,
