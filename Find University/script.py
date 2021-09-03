@@ -1,6 +1,7 @@
 import sys
 import time
 import csv
+import re
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -24,8 +25,9 @@ class FindUniversity:
     def __init__(self):
         self.driver = webdriver.Chrome(executable_path="./chromedriver_linux64/chromedriver", options=chrome_options)
         self.url = "https://www.finduniversity.ph/search.aspx?sch=1&region=national-capital-region"
-        self.csv_headers = ["name", "location", "application_url", "Bachelor's", "Master's", "Doctorate", "Certificate", "review", "reviewer"]
-    
+        self.csv_headers = ["Name", "Location", "Application Url", "Bachelor's Tuition Fee", "Master's Tuition Fee", "Doctorate Tuition Fee", "Certificate Tuition Fee", "Review", "Reviewer Name", "Reviewer's Course", "Revewer Graduated Year"]
+        self.append_header = False
+
     def extract_data(self):
         self.driver.get(self.url)
         time.sleep(5)
@@ -40,25 +42,40 @@ class FindUniversity:
         for dv in detaildiv:
             data = {}
             name = dv.find_element_by_tag_name('h3').text.strip()
-            data["name"] = name
+            data["Name"] = name
             details = dv.find_elements_by_tag_name('li')
             for detail in details:
                 class_attr = detail.get_attribute('class').strip()
                 if class_attr == "location":
-                    data["location"] = detail.text.strip()
+                    data["Location"] = detail.text.strip()
                 elif class_attr == "application":
-                    data["application_url"] = detail.find_element_by_tag_name('a').get_attribute('href')
+                    data["Application Url"] = detail.find_element_by_tag_name('a').get_attribute('href')
                 elif class_attr == "tuition":
                     degreespan = detail.find_elements_by_tag_name('span')
                     try:
                         degree = degreespan[0].text.strip()
-                        data[f"{degree}"] = degreespan[1].text.strip()
+                        data[f"{degree} Tuition Fee"] = degreespan[1].text.strip()
                     except:
                         pass
-            #rev = dv.find_elements_by_class_name("search-item__review")
-            #reviews = dv.find_elements_by_tag_name('p')
-            #data["review"] = reviews[0].text.strip()
-            #data["reviewer"] = reviews[1].text.strip()
+            rev = dv.find_elements_by_class_name("search-item__review")
+            reviews = dv.find_elements_by_tag_name('p')
+            data["Review"] = reviews[0].text.strip()
+            reviewer = reviews[1].find_elements_by_tag_name('span')
+            try:
+                data["Reviewer Name"] = reviewer[0].text.strip()
+            except:
+                pass
+            try:
+                data["Reviewer's Course"] = reviewer[1].text.strip()
+            except:
+                pass
+            try:
+                reg_year_text = reviews[1].text.strip()
+                year_match = re.match(r'.*([1-3][0-9]{3})', reg_year_text)
+                if year_match:
+                    data["Revewer Graduated Year"] = year_match.group(1)
+            except:
+                pass
             self.write_csv(data)
         try:
             next = self.driver.find_element_by_id('cphBody_cphMain_ucBusinessList_ucPagerBottom_hlNext')
@@ -72,6 +89,9 @@ class FindUniversity:
     def write_csv(self, data):
         with open('university.csv', 'a+', encoding='utf8', newline='') as output_file:
             writer = csv.DictWriter(output_file, fieldnames=self.csv_headers)
+            if not self.append_header:
+                writer.writeheader()
+                self.append_header = True
             writer.writerow(data)
 
 if __name__ == "__main__":
